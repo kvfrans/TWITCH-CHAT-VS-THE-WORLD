@@ -29,6 +29,7 @@ window.onload = function(){
 	game.fps = 60;
 	game.preload("images/player.png");
 	game.preload("images/bullet.png");
+    game.preload("images/bullet3.png");
     game.preload("images/bulletbig.png");
     game.preload("images/bulletsmall.png");
     game.preload("images/bosses/udon.png");
@@ -162,7 +163,25 @@ socket.on('connect', function(){
 
 function playerShot(data)
 {
-    // makeBullet(data.sprite.x,)
+    console.log("shote");
+    var dir = 0;
+    if(data.direction == "left")
+    {
+        dir = 180;
+    }
+    else if(data.direction == "right")
+    {
+        dir = 0;
+    }
+    else if(data.direction == "up")
+    {
+        dir = 90;
+    }
+    else if(data.direction == "down")
+    {
+        dir = 270;
+    }
+    makeBullet(data.x,data.y,10,dir,"bullet3",10);
 }
 
 function makeBullet(x,y,speed,rotation,image2,radius)
@@ -184,26 +203,29 @@ function makeBullet(x,y,speed,rotation,image2,radius)
         var Xdist = Math.abs((this.x + game.assets[image].width/2) - (player.sprite.x + player.radius));
         var Ydist = Math.abs((this.y + game.assets[image].width/2) - (player.sprite.y + player.radius));
         var totaldist = Math.sqrt(Xdist*Xdist + Ydist*Ydist);
-        if(totaldist < this.radius + player.hitradius)
+        if(image != "images/bullet3.png")
         {
-            scene.removeChild(this);
-        }
-
-        if(this.x > 1000)
-        {
-            game.rootScene.removeChild(this);
-        }
-        else if(this.x < -100)
-        {
-            game.rootScene.removeChild(this);
-        }
-        else if(this.y > 1000)
-        {
-            game.rootScene.removeChild(this);
-        }
-        else if(this.y < -200)
-        {
-            game.rootScene.removeChild(this);
+            console.log("rip");
+            if(totaldist < this.radius + player.hitradius)
+            {
+                scene.removeChild(this);
+            }
+            if(this.x > 1000)
+            {
+                game.rootScene.removeChild(this);
+            }
+            else if(this.x < -100)
+            {
+                game.rootScene.removeChild(this);
+            }
+            else if(this.y > 1000)
+            {
+                game.rootScene.removeChild(this);
+            }
+            else if(this.y < -200)
+            {
+                game.rootScene.removeChild(this);
+            }
         }
     });
 

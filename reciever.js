@@ -55,7 +55,7 @@ socket.on('spellCardCast', function (data)
 	spellCardCast(data.name);
 });
 
-socket.on('playerShot', function (data)
+socket.on('playerShoot', function (data)
 {
 	playerShot(data);
 });
