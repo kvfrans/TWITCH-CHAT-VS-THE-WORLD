@@ -6,8 +6,11 @@ var id;
 var player = {
 	moveSpeed: 5,
     radius: 16,
-    hitradius: 4
+    hitradius: 4,
+    direction: "left"
 }
+
+var cooldown = 0;
 
 var boss = {};
 var background;
@@ -49,9 +52,18 @@ window.onload = function(){
         game.rootScene.addChild(player.sprite);
         player.sprite.addEventListener("enterframe", function(){
 
+            if(cooldown > 0)
+            {
+                cooldown --;
+            }
+
             if(game.input.space)
             {
-                console.log("asndopasjdoasnpdsopjdpoqdjpsapod");
+                if(cooldown <= 0)
+                {
+                    cooldown = 60;
+                    shootBullet();
+                }
             }
 
         	var moved = false;
@@ -67,18 +79,22 @@ window.onload = function(){
             if(game.input.left && this.x > 0){
 			    this.x -= player.moveSpeed;
 			    moved = true;
+                player.direction = "left";
 			}
 			else if(game.input.right && this.x < 768){
 			    this.x += player.moveSpeed;
 			    moved = true;
+                player.direction = "right";
 			}
 			if(game.input.up && this.y > 0){
 			    this.y -= player.moveSpeed;
 			    moved = true;
+                player.direction = "up";
 			}
 			else if(game.input.down && this.y < 568){
 			    this.y += player.moveSpeed;
 			    moved = true;
+                player.direction = "down";
 			}
 			if(moved)
 			{
@@ -132,7 +148,10 @@ window.onload = function(){
 };
 
 
-
+function shootBullet()
+{
+    console.log(player.direction);
+}
 
 socket.on('connect', function(){
     id = socket.io.engine.id;
