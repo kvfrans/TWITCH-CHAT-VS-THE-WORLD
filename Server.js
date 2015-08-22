@@ -18,11 +18,7 @@ var gameloop = require('node-gameloop');
 var bossx = 400;
 var bossy = 100;
 var direction = "left";
-
-var bossSpray = {
-    count: 36,
-    tilt: 0
-}
+var bossrot = 0;
 
 
 
@@ -174,8 +170,9 @@ function explode()
         speed: 3,
         radius: 16,
         image: "bullet",
-        tilt: 0
+        tilt: bossrot
     });
+    bossrot += 7;
 
 }
 

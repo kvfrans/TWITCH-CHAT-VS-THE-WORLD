@@ -195,7 +195,7 @@ function makeBullet(x,y,speed,rotation,image2,radius)
     bullet.rotation = rotation;
     bullet.radius = radius;
     bullets.push(bullet);
-    game.rootScene.addChild(bullet);
+    game.rootScene.insertBefore(bullet,boss.sprite);
     bullet.addEventListener("enterframe", function(){
         this.x = this.x + Math.cos(this.rotation * Math.PI/180)*this.speed;
         this.y = this.y + Math.sin(this.rotation * Math.PI/180)*this.speed;
