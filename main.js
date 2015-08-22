@@ -41,12 +41,18 @@ window.onload = function(){
 		game.keybind(87, 'up');
 		game.keybind(83, 'down');
 		game.keybind(16, 'shift');
+        game.keybind(32, 'space');
 		player.sprite = new Sprite(32, 32);
 		player.sprite.image = game.assets["images/player.png"];
 		player.sprite.x = 0;
         player.sprite.y = 0;
         game.rootScene.addChild(player.sprite);
         player.sprite.addEventListener("enterframe", function(){
+
+            if(game.input.space)
+            {
+                console.log("asndopasjdoasnpdsopjdpoqdjpsapod");
+            }
 
         	var moved = false;
         	if(game.input.shift)
