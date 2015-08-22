@@ -75,7 +75,7 @@ eval(fs.readFileSync('patterns.js')+'');
 
 
 eval(fs.readFileSync('Communications.js') + '');
-eval(fs.readFileSync('Main.js') + '');
+// eval(fs.readFileSync('Main.js') + '');
 //The twitch stream http://www.twitch.tv/esl_keitatv_csgo
  getChat()
 
