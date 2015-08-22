@@ -173,11 +173,11 @@ function playerShot(data)
     {
         dir = 0;
     }
-    else if(data.direction == "up")
+    else if(data.direction == "down")
     {
         dir = 90;
     }
-    else if(data.direction == "down")
+    else if(data.direction == "up")
     {
         dir = 270;
     }
