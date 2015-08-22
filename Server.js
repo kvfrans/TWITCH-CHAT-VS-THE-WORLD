@@ -22,8 +22,23 @@ var gameloop = require('node-gameloop');
 var players = {};
 var framecount = 0;
 
+var currentboss = "udon";
+var currentbackground = "udon";
+
+//sockets
+
 io.sockets.on('connection', function (socket) {
     console.log("connect");
+    socket.on('gameLoaded', function (data) {
+        // console.log(players);
+        socket.emit("currentboss",{
+            name: currentboss
+        });
+
+        socket.emit("currentbackground",{
+            name: currentbackground
+        });
+    });
 
     socket.on('move', function (data) {
         // console.log(players);
@@ -39,12 +54,19 @@ io.sockets.on('connection', function (socket) {
 
 var fs = require('fs');
 
+eval(fs.readFileSync('bullethelper.js')+'');
+
+// file is included here:
+eval(fs.readFileSync('patterns.js')+'');
+
 var tilt2 = 0;
 
 var id = gameloop.setGameLoop(function(delta) {
     // `delta` is the delta time from the last frame
 
         io.sockets.emit('datastuff', {players: players});
+
+        patternUpdate();
         framecount++;
 }, 1000 / 30);
 
