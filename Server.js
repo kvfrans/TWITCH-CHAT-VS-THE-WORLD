@@ -20,7 +20,6 @@ var bossy = 100;
 
 
 
-
 //NOW FOR ACTUAL STUFF
 var players = {};
 var framecount = 0;
@@ -78,7 +77,7 @@ eval(fs.readFileSync('patterns.js')+'');
 eval(fs.readFileSync('Communications.js') + '');
 
 //The twitch stream http://www.twitch.tv/esl_keitatv_csgo
-// getChat()
+ getChat()
 
 var tilt2 = 100;
 
@@ -96,4 +95,19 @@ var id = gameloop.setGameLoop(function(delta) {
         framecount++;
 }, 1000 / 30);
 
+function moveBoss(direction) {
+    if (direction == "right") {
+        bossx += 100;
+        console.log("woot worked");
+    }
+    if (direction == "left") {
+        bossx -= 100;
+    }
+    if (direction == "up") {
+        bossy += 100;
+    }
+    if (direction == "down") {
+        bossx -= 100;
+    }
+}
 

@@ -1,6 +1,7 @@
 var irc = require("tmi.js");
 var commandArray = [];
 
+
 function getChat() {
 	var options = {
     options: {
@@ -67,15 +68,19 @@ client.connect();
     else {
     if (highest == rightCount) {
 		console.log("highest is right")
+    moveBoss("right")
     }
    else if (highest == leftCount) {
     	console.log("highest is left")
+      moveBoss("left")
     }
    else if (highest == downCount) {
     	console.log("highest is down")
+      moveBoss("down")
     }
     else if (highest == upCount) {
     	console.log("highest is up")
+      moveBoss("up")
     }
 }
 }, 6000);
