@@ -1,21 +1,25 @@
-  var irc = require('twitch-irc');
+var irc = require("tmi.js");
 function getChat() {
-  var client = new irc.client({
-                options: {
-                    debug: true,
-                    debugIgnore: ['ping', 'chat', 'action'],
-                    logging: false,
-                    tc: 3
-                },
-                identity: {
-                    username: 'tacomod1442',
-                    password: 'oauth:h86863wkv1ozgufno15uhxoeyg98gq'
-                },
-                channels: ["stormstudio_csgo_ru"]
-                // channels: ["moonmeander"]
-            });
+	var options = {
+    options: {
+        debug: true
+    },
+    connection: {
+        random: "chat",
+        reconnect: true
+    },
+    identity: {
+        username: "tacomod1442",
+        password: "oauth:h86863wkv1ozgufno15uhxoeyg98gq"
+    },
+    channels: ["stormstudio_csgo_ru"]
+};
 
- client.connect();
+
+var client = new irc.client(options);
+
+// Connect the client to the server..
+client.connect();
 
  client.addListener('chat', function (channel, user, message) {
  	console.log(message)
