@@ -59,3 +59,8 @@ socket.on('playerShoot', function (data)
 {
 	playerShot(data);
 });
+
+socket.on("bossShoot", function (data)
+{
+	makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
+});

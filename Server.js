@@ -101,20 +101,32 @@ var speed = 1;
 
 function moveBosss(direction) {
     if (direction == "right") {
-        bossx += speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossx < 786)
+        {
+            bossx += speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
     if (direction == "left") {
-        bossx -= speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossx > 0)
+        {
+            bossx -= speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
     if (direction == "up") {
-        bossy -= speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossy < 568)
+        {
+            bossy -= speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
     if (direction == "down") {
-        bossy += speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossy > 0)
+        {
+            bossy += speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
 }
 
