@@ -90,6 +90,7 @@ function patternUpdate()
 	}
 	framecountPattern++;
 }
+//Cze)%2ST7B
 
 function spinCircle()
 {

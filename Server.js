@@ -143,22 +143,22 @@ function shootBoss(direction) {
 
     if (direction == "right") {
         for (var i = 0; i < count; i++){
-        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+(5*(i-32/2)),image: "bullet", radius: 16})
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
     }
     }
     if (direction == "left") {
         for (var i = 0; i < count; i++){
-        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+0+(5*(i-32/2)),image: "bullet", radius: 16})
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
     }
     }
     if (direction == "up") {
         for (var i = 0; i < count; i++){
-      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+(5*(i-32/2)),image: "bullet", radius: 16})
+      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
   }
     }
     if (direction == "down") {
         for (var i = 0; i < count; i++){
-        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+0+(5*(i-32/2)),image: "bullet", radius: 16})
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
     }
     }
 }
