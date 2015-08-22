@@ -1,6 +1,6 @@
 var irc = require("tmi.js");
-var commandArray = [];
-
+var commandMoveArray = [];
+var commandShootArray = [];
 
 function getChat() {
 	var options = {
@@ -26,19 +26,31 @@ client.connect();
 
  client.addListener('chat', function (channel, user, message) {
  	if (message == "right") {
- 		commandArray.push(message)
+ 		commandMoveArray.push(message)
  		console.log("users asked for right");
  	}
  	if (message == "left") {
- 		commandArray.push(message)
+ 		commandMoveArray.push(message)
 
  	}
  	if (message == "down") {
-		commandArray.push(message)
+		commandMoveArray.push(message)
  	}
  	if (message == "user") {
- 		commandArray.push(message)
+ 		commandMoveArray.push(message)
  	}
+  if(message == "shoot right") {
+    commandShootArray.push(message)
+  }
+  if (message == "shoot left") {
+    commandShootArray.push(message)
+  }
+  if (message == "shoot down") {
+    commandShootArray.push(message)
+  }
+  if (message == "shoot up") {
+    commandShootArray.push(message)
+  }
  });
 
  setInterval(function() {
@@ -46,18 +58,18 @@ client.connect();
  	  var leftCount = 0;
  	  var downCount = 0;
  	  var upCount = 0;
-      for (var i =0; i < commandArray.length; i ++) {
-      	if (commandArray[i] == "right") {
+      for (var i =0; i < commandMoveArray.length; i ++) {
+      	if (commandMoveArray[i] == "right") {
       		rightCount++;
       	}
-      	if (commandArray[i] == "left") {
+      	if (commandMoveArray[i] == "left") {
       		console.log("added")
       		leftCount++;
       	}
-      	if (commandArray[i] == "down") {
+      	if (commandMoveArray[i] == "down") {
       		downCount++;
       	}
-      	if (commandArray[i] == "up") {
+      	if (commandMoveArray[i] == "up") {
       		upCount++;
       	}
       }
@@ -86,7 +98,45 @@ client.connect();
       direction = "up";
     }
 }
-commandArray = [];
+commandMoveArray = [];
+  rightCount = 0;
+  leftCount = 0;
+  upCount = 0;
+  downCount = 0;
+  for (var y = 0; y < commandShootArray.length; y++) {
+    if (commandShootArray[y] == "shoot right") {
+      rightCount++
+    }
+    if (commandShootArray[y] == "shoot left") {
+      leftCount++
+    }
+    if (commandShootArray[y] == "shoot down") {
+      downCount++
+    }
+    if (commandShootArray[y] == "shoot up") {
+      upCount++
+    }
+  }
+  highest = Math.max(rightCount, leftCount, upCount, downCount)
+  if (highest == 0) {
+    console.log("none called")
+  }
+  else {
+    if (highest == rightCount) {
+      shootBoss("right")
+    }
+    else if (highest == leftCount) {
+      shootBoss("left")
+    }
+    else if (highest == downCount) {
+      shootBoss("down")
+    }
+    else if (highest == upCount) {
+      shootBoss("up")
+    }
+  }
+  commandShootArray = [];
+
 }, 6000);
 
 
