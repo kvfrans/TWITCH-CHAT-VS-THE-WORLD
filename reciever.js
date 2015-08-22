@@ -45,6 +45,11 @@ socket.on('initBoss', function (data)
 	initBoss(data.x,data.y,data.image);
 });
 
+socket.on('moveBoss', function (data)
+{
+	moveBoss(data.x,data.y);
+});
+
 socket.on('spellCardCast', function (data)
 {
 	spellCardCast(data.name);

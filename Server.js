@@ -38,6 +38,7 @@ io.sockets.on('connection', function (socket) {
         socket.emit("currentbackground",{
             name: currentbackground
         });
+        spinCircle();
     });
 
     socket.on('move', function (data) {
@@ -66,7 +67,7 @@ var id = gameloop.setGameLoop(function(delta) {
 
         io.sockets.emit('datastuff', {players: players});
 
-        patternUpdate();
+        // patternUpdate();
         framecount++;
 }, 1000 / 30);
 
