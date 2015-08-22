@@ -68,7 +68,7 @@ eval(fs.readFileSync('patterns.js')+'');
 eval(fs.readFileSync('Communications.js') + '');
 
 //The twitch stream http://www.twitch.tv/esl_keitatv_csgo
-
+getChat()
 
 var tilt2 = 100;
 
