@@ -39,9 +39,13 @@ io.sockets.on('connection', function (socket) {
             name: currentbackground
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         spinCircle();
 >>>>>>> cadade7da883c58c391fbc3c9fc68f7506a07d40
+=======
+        // spinCircle();
+>>>>>>> bf8c36d852371c250a9e4cee2ad9db13cc395f9a
     });
 
     socket.on('move', function (data) {
