@@ -61,18 +61,23 @@ client.connect();
       	}
       }
     var highest = Math.max(rightCount, leftCount, downCount, upCount);
+    if (highest == 0) {
+    	console.log("no one")
+    }
+    else {
     if (highest == rightCount) {
-		console.log("highest is"+ highest)
+		console.log("highest is right")
     }
-    if (highest == leftCount) {
-
+   else if (highest == leftCount) {
+    	console.log("highest is left")
     }
-    if (highest == downCount) {
-
+   else if (highest == downCount) {
+    	console.log("highest is down")
     }
-    if (highest == upCount) {
-
+    else if (highest == upCount) {
+    	console.log("highest is up")
     }
+}
 }, 6000);
 
 
