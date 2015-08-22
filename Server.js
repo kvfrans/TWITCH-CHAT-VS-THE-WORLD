@@ -162,7 +162,7 @@ function shootBoss(direction) {
     }
     }
 }
-
+//
 function explode()
 {
     console.log("explode");
