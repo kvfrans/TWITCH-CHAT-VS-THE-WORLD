@@ -101,20 +101,47 @@ var speed = 1;
 
 function moveBosss(direction) {
     if (direction == "right") {
-        bossx += speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossx < 786)
+        {
+            bossx += speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
     if (direction == "left") {
-        bossx -= speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossx > 0)
+        {
+            bossx -= speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
     if (direction == "up") {
-        bossy -= speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossy < 568)
+        {
+            bossy -= speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
     }
     if (direction == "down") {
-        bossy += speed;
-        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        if(bossy > 0)
+        {
+            bossy += speed;
+            io.sockets.emit('moveBoss', {x: bossx, y: bossy})
+        }
+    }
+}
+function shootBoss(direction) {
+    //makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
+    if (direction == "right") {
+        io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 90,image: "Bullet", radius: 16})
+    }
+    if (direction == "left") {
+        io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 270,image: "Bullet", radius: 16})
+    }
+    if (direction == "up") {
+      io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 360,image: "Bullet", radius: 16})
+    }
+    if (direction == "down") {
+        io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 180,image: "Bullet", radius: 16})
     }
 }
 

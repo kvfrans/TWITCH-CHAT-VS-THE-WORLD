@@ -64,7 +64,7 @@ window.onload = function(){
             {
                 if(cooldown <= 0)
                 {
-                    cooldown = 60;
+                    cooldown = 20;
                     shootBullet();
                 }
             }

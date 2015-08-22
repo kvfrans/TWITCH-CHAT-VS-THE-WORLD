@@ -59,3 +59,9 @@ socket.on('playerShoot', function (data)
 {
 	playerShot(data);
 });
+
+socket.on("bossShoot", function (data)
+{
+	//Radius should be 16
+	makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
+});

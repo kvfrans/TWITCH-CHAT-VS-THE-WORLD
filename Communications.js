@@ -123,16 +123,16 @@ commandMoveArray = [];
   }
   else {
     if (highest == rightCount) {
-
+      shootBoss("right")
     }
     else if (highest == leftCount) {
-
+      shootBoss("left")
     }
     else if (highest == downCount) {
-
+      shootBoss("down")
     }
     else if (highest == upCount) {
-
+      shootBoss("up")
     }
   }
   commandShootArray = [];
