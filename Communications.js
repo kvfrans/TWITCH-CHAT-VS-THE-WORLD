@@ -83,6 +83,7 @@ client.connect();
       moveBosss("up")
     }
 }
+commandArray = [];
 }, 6000);
 
 
