@@ -137,7 +137,7 @@ commandMoveArray = [];
   }
   commandShootArray = [];
 
-}, 6000);
+}, 1000);
 
 
 }
