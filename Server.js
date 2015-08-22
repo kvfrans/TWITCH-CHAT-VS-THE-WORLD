@@ -97,10 +97,10 @@ var id = gameloop.setGameLoop(function(delta) {
 
         framecount++;
 
-        if(framecount % 20 == 0)
-        {
-            explode();
-        }
+        // if(framecount % 20 == 0)
+        // {
+        //     explode();
+        // }
 }, 1000 / 30);
 
 var speed = 1;
