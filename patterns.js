@@ -89,6 +89,7 @@ function patternUpdate()
 		}
 	}
 	framecountPattern++;
+}
 
 function spinCircle()
 {
