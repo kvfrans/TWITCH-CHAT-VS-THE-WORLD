@@ -1,6 +1,7 @@
 var stage = 0;
 var framecountPattern = 0;
 
+<<<<<<< HEAD
 function patternUpdate()
 {
 	// console.log(framecountPattern + " " + stage);
@@ -89,6 +90,14 @@ function patternUpdate()
 		}
 	}
 	framecountPattern++;
+=======
+function spinCircle()
+{
+	io.sockets.emit('spinCircle',{
+				x:400,
+				y:300
+			});
+>>>>>>> cadade7da883c58c391fbc3c9fc68f7506a07d40
 }
 
 

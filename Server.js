@@ -38,6 +38,10 @@ io.sockets.on('connection', function (socket) {
         socket.emit("currentbackground",{
             name: currentbackground
         });
+<<<<<<< HEAD
+=======
+        spinCircle();
+>>>>>>> cadade7da883c58c391fbc3c9fc68f7506a07d40
     });
 
     socket.on('move', function (data) {
@@ -59,6 +63,7 @@ eval(fs.readFileSync('bullethelper.js')+'');
 // file is included here:
 eval(fs.readFileSync('patterns.js')+'');
 
+<<<<<<< HEAD
 eval(fs.readFileSync('Communications.js') + '');
 
 //The twitch stream http://www.twitch.tv/esl_keitatv_csgo
@@ -67,6 +72,8 @@ eval(fs.readFileSync('Communications.js') + '');
 var tilt2 = 100;
 
 
+=======
+>>>>>>> cadade7da883c58c391fbc3c9fc68f7506a07d40
 var tilt2 = 0;
 
 var id = gameloop.setGameLoop(function(delta) {
@@ -74,7 +81,11 @@ var id = gameloop.setGameLoop(function(delta) {
 
         io.sockets.emit('datastuff', {players: players});
 
+<<<<<<< HEAD
         patternUpdate();
+=======
+        // patternUpdate();
+>>>>>>> cadade7da883c58c391fbc3c9fc68f7506a07d40
         framecount++;
 }, 1000 / 30);
 

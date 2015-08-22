@@ -192,6 +192,15 @@ function initBoss(x,y,image)
     game.rootScene.addChild(boss.sprite);
 }
 
+<<<<<<< HEAD
+=======
+function moveBoss(x,y)
+{
+    boss.sprite.x = x - 64;
+    boss.sprite.y = y - 64;
+}
+
+>>>>>>> cadade7da883c58c391fbc3c9fc68f7506a07d40
 function initBackground(image)
 {
     background = new Sprite(800, 600);
