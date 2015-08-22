@@ -98,19 +98,19 @@ var id = gameloop.setGameLoop(function(delta) {
 function moveBosss(direction) {
     if (direction == "right") {
         bossx += 100;
-        moveBoss(bossx, bossy)
+        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
     if (direction == "left") {
         bossx -= 100;
-        moveBoss(bossx, bossy)
+        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
     if (direction == "up") {
         bossy += 100;
-        moveBoss(bossx, bossy)
+        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
     if (direction == "down") {
         bossx -= 100;
-        moveBoss(bossx, bossy)
+        io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
 }
 
