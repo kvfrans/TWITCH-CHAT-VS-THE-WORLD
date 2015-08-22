@@ -15,6 +15,9 @@ var io = require('socket.io').listen(app.listen(process.env.PORT || port));
 
 var gameloop = require('node-gameloop');
 
+var bossx = 400;
+var bossy = 100;
+
 
 
 
