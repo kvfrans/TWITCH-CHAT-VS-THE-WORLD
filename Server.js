@@ -47,7 +47,14 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('move', function (data) {
         // console.log(players);
-        players[socket.id] = {x: data.x, y: data.y}
+        players[socket.id] = {x: data.x, y: data.y, direction: data.direction}
+    });
+
+    socket.on('shoot', function (data) {
+        // console.log(players);
+        io.sockets.emit("playerShoot",players[socket.id]);
+        console.log(players[socket.id]);
+        // players[socket.id] = {x: data.x, y: data.y}
     });
 
     socket.on('disconnect', function () {
@@ -68,7 +75,7 @@ eval(fs.readFileSync('patterns.js')+'');
 eval(fs.readFileSync('Communications.js') + '');
 
 //The twitch stream http://www.twitch.tv/esl_keitatv_csgo
-getChat()
+// getChat()
 
 var tilt2 = 100;
 
@@ -81,7 +88,7 @@ var id = gameloop.setGameLoop(function(delta) {
 
         io.sockets.emit('datastuff', {players: players});
 
-        patternUpdate();
+        // patternUpdate();
 
         framecount++;
 }, 1000 / 30);

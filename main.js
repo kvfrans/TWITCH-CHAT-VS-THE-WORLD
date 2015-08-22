@@ -19,6 +19,8 @@ var others = {};
 var bullets = [];
 var spawners = [];
 
+var playerbullets;
+
 var game;
 var scene;
 
@@ -100,7 +102,8 @@ window.onload = function(){
 			{
 				socket.emit("move",{
 					x: this.x,
-					y: this.y
+					y: this.y,
+                    direction: player.direction
 				});
         	}
         });
@@ -150,12 +153,17 @@ window.onload = function(){
 
 function shootBullet()
 {
-    console.log(player.direction);
+    socket.emit("shoot",{});
 }
 
 socket.on('connect', function(){
     id = socket.io.engine.id;
 });
+
+function playerShot(data)
+{
+    // makeBullet(data.sprite.x,)
+}
 
 function makeBullet(x,y,speed,rotation,image2,radius)
 {
