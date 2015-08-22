@@ -11,13 +11,14 @@ function getChat() {
                     username: 'tacomod1442',
                     password: 'oauth:h86863wkv1ozgufno15uhxoeyg98gq'
                 },
-                channels: ["esl_keitatv_csgo"]
+                channels: ["stormstudio_csgo_ru"]
                 // channels: ["moonmeander"]
             });
 
  client.connect();
 
  client.addListener('chat', function (channel, user, message) {
- 	console.logging(message)
+ 	console.log(message)
+ 	console.log("AYY LMAO")
  });
 }
