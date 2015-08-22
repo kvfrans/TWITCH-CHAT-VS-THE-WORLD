@@ -68,19 +68,22 @@ client.connect();
     else {
     if (highest == rightCount) {
 		console.log("highest is right")
-    moveBosss("right")
+    direction = "right";
     }
    else if (highest == leftCount) {
     	console.log("highest is left")
       moveBosss("left")
+      direction = "left";
     }
    else if (highest == downCount) {
     	console.log("highest is down")
       moveBosss("down")
+      direction = "down";
     }
     else if (highest == upCount) {
     	console.log("highest is up")
       moveBosss("up")
+      direction = "up";
     }
 }
 commandArray = [];

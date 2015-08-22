@@ -249,8 +249,11 @@ function initBoss(x,y,image)
 
 function moveBoss(x,y)
 {
-    boss.sprite.x = x - 64;
-    boss.sprite.y = y - 64;
+    if(boss.sprite != null)
+    {
+        boss.sprite.x = x - 64;
+        boss.sprite.y = y - 64;
+    }
 }
 
 function initBackground(image)

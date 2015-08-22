@@ -17,6 +17,7 @@ var gameloop = require('node-gameloop');
 
 var bossx = 400;
 var bossy = 100;
+var direction = "left";
 
 
 
@@ -91,25 +92,28 @@ var id = gameloop.setGameLoop(function(delta) {
         io.sockets.emit('datastuff', {players: players});
 
         // patternUpdate();
+        moveBosss(direction);
 
         framecount++;
 }, 1000 / 30);
 
+var speed = 1;
+
 function moveBosss(direction) {
     if (direction == "right") {
-        bossx += 100;
+        bossx += speed;
         io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
     if (direction == "left") {
-        bossx -= 100;
+        bossx -= speed;
         io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
     if (direction == "up") {
-        bossy += 100;
+        bossy -= speed;
         io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
     if (direction == "down") {
-        bossx -= 100;
+        bossy += speed;
         io.sockets.emit('moveBoss', {x: bossx, y: bossy})
     }
 }
