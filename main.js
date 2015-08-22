@@ -205,7 +205,7 @@ function initBackground(image)
     background.originX = 0;
     background.originY = 0;
     background.x = 0;
-    background.opacity = 0.3;
+    background.opacity = 1;
     // console.log(boss.sprite.x);
     background.y = 0;
     game.rootScene.insertBefore(background,player.sprite);

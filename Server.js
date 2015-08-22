@@ -38,7 +38,7 @@ io.sockets.on('connection', function (socket) {
         socket.emit("currentbackground",{
             name: currentbackground
         });
-        spinCircle();
+        // spinCircle();
     });
 
     socket.on('move', function (data) {
