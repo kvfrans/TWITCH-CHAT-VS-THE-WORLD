@@ -1,7 +1,7 @@
 var irc = require("tmi.js");
 var commandMoveArray = [];
 var commandShootArray = [];
-
+var explodeCount = 0;
 function getChat() {
 	var options = {
     options: {
@@ -25,6 +25,11 @@ var client = new irc.client(options);
 client.connect();
 
  client.addListener('chat', function (channel, user, message) {
+  explodeCount++;
+  if (explodeCount >= 10) {
+    explodeCount = 0
+    explode()
+  }
  	if (message == "right") {
  		commandMoveArray.push(message)
  		console.log("users asked for right");
