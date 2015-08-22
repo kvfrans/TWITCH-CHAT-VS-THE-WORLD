@@ -143,16 +143,16 @@ function moveBosss(direction) {
 function shootBoss(direction) {
     //makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
     if (direction == "right") {
-        io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 90,image: "Bullet", radius: 16})
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90,image: "bullet", radius: 16})
     }
     if (direction == "left") {
-        io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 270,image: "Bullet", radius: 16})
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270,image: "bullet", radius: 16})
     }
     if (direction == "up") {
-      io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 360,image: "Bullet", radius: 16})
+      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 360,image: "bullet", radius: 16})
     }
     if (direction == "down") {
-        io.sockets.emit('bossShoot' {x: bossx, y: bossy, speed: 10, rotation: 180,image: "Bullet", radius: 16})
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180,image: "bullet", radius: 16})
     }
 }
 
@@ -160,7 +160,7 @@ function explode()
 {
     console.log("explode");
     io.sockets.emit("circleSpread",{
-        count: 36,
+        count: 12,
         x: bossx,
         y: bossy,
         speed: 3,
