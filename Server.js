@@ -75,7 +75,7 @@ eval(fs.readFileSync('patterns.js')+'');
 
 
 eval(fs.readFileSync('Communications.js') + '');
-
+eval(fs.readFileSync('Main.js') + '');
 //The twitch stream http://www.twitch.tv/esl_keitatv_csgo
  getChat()
 
@@ -95,19 +95,22 @@ var id = gameloop.setGameLoop(function(delta) {
         framecount++;
 }, 1000 / 30);
 
-function moveBoss(direction) {
+function moveBosss(direction) {
     if (direction == "right") {
         bossx += 100;
-        console.log("woot worked");
+        moveBoss(bossx, bossy)
     }
     if (direction == "left") {
         bossx -= 100;
+        moveBoss(bossx, bossy)
     }
     if (direction == "up") {
         bossy += 100;
+        moveBoss(bossx, bossy)
     }
     if (direction == "down") {
         bossx -= 100;
+        moveBoss(bossx, bossy)
     }
 }
 

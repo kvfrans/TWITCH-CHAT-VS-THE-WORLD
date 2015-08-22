@@ -68,19 +68,19 @@ client.connect();
     else {
     if (highest == rightCount) {
 		console.log("highest is right")
-    moveBoss("right")
+    moveBosss("right")
     }
    else if (highest == leftCount) {
     	console.log("highest is left")
-      moveBoss("left")
+      moveBosss("left")
     }
    else if (highest == downCount) {
     	console.log("highest is down")
-      moveBoss("down")
+      moveBosss("down")
     }
     else if (highest == upCount) {
     	console.log("highest is up")
-      moveBoss("up")
+      moveBosss("up")
     }
 }
 }, 6000);
