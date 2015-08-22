@@ -19,6 +19,11 @@ var bossx = 400;
 var bossy = 100;
 var direction = "left";
 
+var bossSpray = {
+    count: 36,
+    tilt: 0
+}
+
 
 
 //NOW FOR ACTUAL STUFF
@@ -95,6 +100,11 @@ var id = gameloop.setGameLoop(function(delta) {
         moveBosss(direction);
 
         framecount++;
+
+        if(framecount % 20 == 0)
+        {
+            explode();
+        }
 }, 1000 / 30);
 
 var speed = 1;
@@ -128,5 +138,20 @@ function moveBosss(direction) {
             io.sockets.emit('moveBoss', {x: bossx, y: bossy})
         }
     }
+}
+
+function explode()
+{
+    console.log("explode");
+    io.sockets.emit("circleSpread",{
+        count: 36,
+        x: bossx,
+        y: bossy,
+        speed: 3,
+        radius: 16,
+        image: "bullet",
+        tilt: 0
+    });
+
 }
 

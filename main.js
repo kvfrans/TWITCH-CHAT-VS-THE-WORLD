@@ -205,7 +205,7 @@ function makeBullet(x,y,speed,rotation,image2,radius)
         var totaldist = Math.sqrt(Xdist*Xdist + Ydist*Ydist);
         if(image != "images/bullet3.png")
         {
-            console.log("rip");
+            // console.log("rip");
             if(totaldist < this.radius + player.hitradius)
             {
                 scene.removeChild(this);
