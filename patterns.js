@@ -102,7 +102,7 @@ function spinCircle()
 
 function nextStage()
 {
-	console.log("nxt");
+
 	io.sockets.emit("clearSpawners",{});
 	stage++;
 	framecountPattern = 0;

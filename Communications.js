@@ -1,4 +1,6 @@
 var irc = require("tmi.js");
+var commandArray = [];
+
 function getChat() {
 	var options = {
     options: {
@@ -9,10 +11,10 @@ function getChat() {
         reconnect: true
     },
     identity: {
-        username: "tacomod1442",
-        password: "oauth:h86863wkv1ozgufno15uhxoeyg98gq"
+        username: "progstream2",
+        password: "oauth:d45tjs5ly4kbn524zyp6eju7vj1sbf"
     },
-    channels: ["stormstudio_csgo_ru"]
+    channels: ["progstream2"]
 };
 
 
@@ -22,7 +24,56 @@ var client = new irc.client(options);
 client.connect();
 
  client.addListener('chat', function (channel, user, message) {
- 	console.log(message)
- 	console.log("AYY LMAO")
+ 	if (message == "right") {
+ 		commandArray.push(message)
+ 		console.log("users asked for right");
+ 	}
+ 	if (message == "left") {
+ 		commandArray.push(message)
+
+ 	}
+ 	if (message == "down") {
+		commandArray.push(message)
+ 	}
+ 	if (message == "user") {
+ 		commandArray.push(message)
+ 	}
  });
+
+ setInterval(function() {
+ 	  var rightCount = 0;
+ 	  var leftCount = 0;
+ 	  var downCount = 0;
+ 	  var upCount = 0;
+      for (var i =0; i < commandArray.length; i ++) {
+      	if (commandArray[i] == "right") {
+      		rightCount++;
+      	}
+      	if (commandArray[i] == "left") {
+      		console.log("added")
+      		leftCount++;
+      	}
+      	if (commandArray[i] == "down") {
+      		downCount++;
+      	}
+      	if (commandArray[i] == "up") {
+      		upCount++;
+      	}
+      }
+    var highest = Math.max(rightCount, leftCount, downCount, upCount);
+    if (highest == rightCount) {
+		console.log("highest is"+ highest)
+    }
+    if (highest == leftCount) {
+
+    }
+    if (highest == downCount) {
+
+    }
+    if (highest == upCount) {
+
+    }
+}, 6000);
+
+
 }
