@@ -203,23 +203,30 @@ function explode()
 }
 function slowThenFastRing()
 {
+    io.sockets.emit("clearSpawners",{});
     io.sockets.emit("slowThenFastRing",{});
 
 }
 
 function rain(dir)
 {
+    io.sockets.emit("clearSpawners",{});
     io.sockets.emit("rain",{dir: dir});
 }
 
 
 function laser(dir)
 {
+    io.sockets.emit("clearSpawners",{});
     io.sockets.emit("laser",{dir: dir});
 }
 
 function bomb(dir)
 {
+<<<<<<< HEAD
+=======
+    io.sockets.emit("clearSpawners",{});
+>>>>>>> 4e2bade2c42abb56ebff97f19686946b7ade1b35
     io.sockets.emit("bomb",{dir: dir});
 }
 

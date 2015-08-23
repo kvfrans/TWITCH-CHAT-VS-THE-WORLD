@@ -111,6 +111,7 @@ client.connect();
     else {
     if (highest == rightCount) {
 		console.log("highest is right")
+    moveBosss("right")
     direction = "right";
     }
    else if (highest == leftCount) {
