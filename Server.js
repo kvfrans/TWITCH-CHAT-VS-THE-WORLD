@@ -212,6 +212,7 @@ function slowThenFastRing()
 
 function rain(dir)
 {
+    console.log("rain");
     io.sockets.emit("clearSpawners",{});
     io.sockets.emit("rain",{dir: dir});
 }
