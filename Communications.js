@@ -130,6 +130,7 @@ client.connect();
     }
 }
 commandMoveArray = [];
+  var direction;
   rightCount = 0;
   leftCount = 0;
   upCount = 0;
@@ -151,18 +152,23 @@ commandMoveArray = [];
   highest = Math.max(rightCount, leftCount, upCount, downCount)
   if (highest == 0) {
     console.log("none called")
+    direction("right")
   }
   else {
     if (highest == rightCount) {
+      direction = "right";
       shootBoss("right")
     }
     else if (highest == leftCount) {
+      direction = "left"
       shootBoss("left")
     }
     else if (highest == downCount) {
+      direction = "down"
       shootBoss("down")
     }
     else if (highest == upCount) {
+      direction = "up"
       shootBoss("up")
     }
   }
@@ -203,10 +209,10 @@ commandMoveArray = [];
       slowThenFastRing()
     }
     else if (highest == laserCount) {
-      laser()
+      laser(direction)
     }
     else if (highest == rainCount) {
-      rain()
+      rain(direction)
     }
     else if (highest == bombCount) {
 
