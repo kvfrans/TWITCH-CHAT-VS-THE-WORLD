@@ -39,7 +39,7 @@ window.onload = function(){
 
     socket.emit("gameLoaded",{});
 
-		game.scale = 1;
+		game.scale = window.innerHeight / 600;
 		game.rootScene.backgroundColor = 'black';
         scene = game.rootScene;
 		game.keybind(65, 'left');

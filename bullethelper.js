@@ -69,37 +69,88 @@ function spinCircle(x,y)
 	})
 }
 
+function rain(direction)
+{
+	console.log(direction);
+
+	if(boss.sprite != null)
+	{
+		var spawner = makeSpawner(boss.sprite.x,boss.sprite.y);
+		spawner.framepast = 0;
+		spawner.tilt = 0;
+		spawner.addEventListener("enterframe",function(){
+			this.x = boss.sprite.x;
+			this.y = boss.sprite.y;
+			this.dd = directionNumber(direction);
+
+			if(this.framepast % 10 == 0)
+			{
+				// var dir = 0;
+					var bullet = makeBullet(Math.random()*1000 - 100,Math.random()*1000 - 100,Math.random()*5 + 1,this.dd,"bullet",16);
+					bullet.framepast = 0;
+			}
+			// spawner.tilt ;
+			this.framepast++;
+		});
+	}
+}
+
+
 function slowThenFastRing()
 {
-	var spawner = makeSpawner(bossx,bossy);
-	spawner.framepast = 0;
-	spawner.tilt = 0;
-	spawner.addEventListener("enterframe",function(){
-		this.x = bossx;
-		this.y = bossy;
-		if(this.framepast % 20 == 0)
-		{
-			this.count = 36;
-			this.tilt += 2;
-			for(var i = 0; i < this.count; i++)
+	if(boss.sprite != null)
+	{
+		var spawner = makeSpawner(boss.sprite.x,boss.sprite.y);
+		spawner.framepast = 0;
+		spawner.tilt = 0;
+		spawner.addEventListener("enterframe",function(){
+			this.x = boss.sprite.x;
+			this.y = boss.sprite.y;
+			if(this.framepast % 60 == 0)
 			{
-				var bullet = makeBullet(x,y,3,this.tilt+360*i/this.count,"bullet",16);
-				bullet.framepast = 0;
-				bullet.addEventListener("enterframe",function(){
-					this.framepast++;
-					if(this.framepast < 80)
-					{
-						this.speed = 3 - 3*this.framepast/80;
-					}
-					else if(this.framepast == 81)
-					{
-						this.speed = 6;
-						this.rotation += 90;
-					}
-				});
+				this.count = 36;
+				this.tilt += 2;
+				for(var i = 0; i < this.count; i++)
+				{
+					var bullet = makeBullet(boss.sprite.x,boss.sprite.y,3,this.tilt+360*i/this.count,"bullet",16);
+					bullet.framepast = 0;
+					bullet.addEventListener("enterframe",function(){
+						this.framepast++;
+						if(this.framepast < 80)
+						{
+							this.speed = 3 - 3*this.framepast/80;
+						}
+						else if(this.framepast == 81)
+						{
+							this.speed = 6;
+							this.rotation += 90;
+						}
+					});
+				}
 			}
-		}
-		// spawner.tilt ;
-		this.framepast++;
-	})
+			// spawner.tilt ;
+			this.framepast++;
+		});
+	}
+}
+
+
+function directionNumber(dir)
+{
+	if(dir == "left")
+	{
+		return 180;
+	}
+	if(dir == "right")
+	{
+		return 0;
+	}
+	if(dir == "up")
+	{
+		return 270;
+	}
+	if(dir == "down")
+	{
+		return 90;
+	}
 }

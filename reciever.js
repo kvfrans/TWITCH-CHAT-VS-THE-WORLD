@@ -40,6 +40,16 @@ socket.on('slowThenFastRing', function (data)
 	slowThenFastRing();
 });
 
+socket.on('rain', function (data)
+{
+	rain(data.dir);
+});
+
+socket.on('laser', function (data)
+{
+	laser(data.dir);
+});
+
 socket.on('initBoss', function (data)
 {
 	initBoss(data.x,data.y,data.image);

@@ -43,6 +43,8 @@ io.sockets.on('connection', function (socket) {
             name: currentbackground
         });
 
+        rain("left");
+
         // spinCircle();
 
         // spinCircle();
@@ -70,7 +72,7 @@ io.sockets.on('connection', function (socket) {
 
 var fs = require('fs');
 
-eval(fs.readFileSync('bullethelper.js')+'');
+// eval(fs.readFileSync('bullethelper.js')+'');
 
 // file is included here:
 eval(fs.readFileSync('patterns.js')+'');
@@ -96,11 +98,6 @@ var id = gameloop.setGameLoop(function(delta) {
         moveBosss(direction);
 
         framecount++;
-
-        if(framecount % 20 == 0)
-        {
-            slowThenFastRing();
-        }
 }, 1000 / 30);
 
 var speed = 1;
@@ -180,5 +177,15 @@ function explode()
 function slowThenFastRing()
 {
     io.sockets.emit("slowThenFastRing",{});
+}
+
+function rain(dir)
+{
+    io.sockets.emit("rain",{dir: dir});
+}
+
+function laser(dir)
+{
+    io.sockets.emit("laser",{dir: dir});
 }
 
