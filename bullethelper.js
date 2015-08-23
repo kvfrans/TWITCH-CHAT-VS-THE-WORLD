@@ -125,6 +125,36 @@ function laser(direction)
 	}
 }
 
+function laser(direction)
+{
+	console.log(direction);
+
+	if(boss.sprite != null)
+	{
+		var spawner = makeSpawner(boss.sprite.x,boss.sprite.y);
+		spawner.framepast = 0;
+		spawner.tilt = 0;
+		spawner.dd = directionNumber(direction);
+		spawner.addEventListener("enterframe",function(){
+			this.x = boss.sprite.x;
+			this.y = boss.sprite.y;
+
+			console.log(spawner.dd);
+
+
+			// if(this.framepast % 1 == 0)
+			// {
+				// var dir = 0;
+					var bullet = makeBullet(boss.sprite.x + 64,boss.sprite.y + 64,Math.random()*3+7,this.dd,"bullet",16);
+					bullet.framepast = 0;
+					this.dd++;
+			// }
+			// spawner.tilt ;
+			this.framepast++;
+		});
+	}
+}
+
 
 function bomb(direction)
 {

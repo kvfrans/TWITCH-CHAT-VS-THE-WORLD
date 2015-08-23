@@ -224,6 +224,7 @@ function laser(dir)
 function bomb(dir)
 {
     io.sockets.emit("clearSpawners",{});
+
     io.sockets.emit("bomb",{dir: dir});
 }
 
