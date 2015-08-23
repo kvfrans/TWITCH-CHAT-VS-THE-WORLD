@@ -159,7 +159,12 @@ function bomb(direction)
 		this.framepast++;
 		if(this.framepast == 100)
 		{
-			circleSpread(16,this.x,this.y,3,16,"bullet",0);
+			// circleSpread(16,this.x,this.y,3,16,"bullet",0);
+			for(var i = 0; i < 32; i++)
+			{
+				makeBullet(this.x,this.y,Math.random()*5+3,0+360*i/32,"bullet",16);
+			}
+			scene.removeChild(this);
 		}
 	});
 }
