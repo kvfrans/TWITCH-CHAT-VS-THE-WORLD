@@ -37,6 +37,9 @@ client.connect();
   if (message == "!commands") {
     client.action("progstream2", "To move type shootDirection (EX: right, left, up, down). To shoot type shootDirection. To change shoot pattern type (EX:)")
   }
+  if (message == "!donate") {
+    client.action("progstream2", "To Be Done")
+  }
  	if (message == "right") {
  		commandMoveArray.push(message)
  		console.log("users asked for right");
