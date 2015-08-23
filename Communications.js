@@ -152,7 +152,7 @@ commandMoveArray = [];
   }
   highest = Math.max(rightCount, leftCount, upCount, downCount)
   if (highest == 0) {
-    console.log("none called")
+    // console.log("none called")
     direction = "right"
   }
   else {
@@ -203,7 +203,7 @@ commandMoveArray = [];
   }
   highest = Math.max(spreadCount, laserCount, rainCount, bombCount, bounceCount, nukeCount)
   if (highest == 0) {
-    console.log("Nothing happened")
+    // console.log("Nothing happened")
   }
   else {
     if (highest = spreadCount) {

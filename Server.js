@@ -109,6 +109,8 @@ var id = gameloop.setGameLoop(function(delta) {
 var speed = 1;
 
 function moveBosss(direction) {
+
+    console.log("moveboss");
     if (direction == "right") {
         if(bossx < 786)
         {
