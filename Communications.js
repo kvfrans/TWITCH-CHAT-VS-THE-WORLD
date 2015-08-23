@@ -1,6 +1,7 @@
 var irc = require("tmi.js");
 var commandMoveArray = [];
 var commandShootArray = [];
+var commandPatternArray = [];
 var explodeCount = 0;
 function getChat() {
 	var options = {
@@ -62,6 +63,25 @@ client.connect();
   if (message == "shoot up") {
     commandShootArray.push(message)
   }
+  if (message == "pattern-spread") {
+    commandPatternArray.push(message)
+  }
+  if (message == "pattern-laser") {
+    commandPatternArray.push(message)
+  }
+  if (message == "pattern-rain") {
+    commandPatternArray.push(message)
+  }
+  if (message == "pattern-bomb") {
+    commandPatternArray.push(message)
+  }
+  if (message == "pattern-bounce") {
+    commandPatternArray.push(message)
+  }
+  if (message == "pattern-nuke") {
+    commandPatternArray.push(message)
+  }
+  if 
  });
 
  setInterval(function() {
@@ -147,6 +167,57 @@ commandMoveArray = [];
     }
   }
   commandShootArray = [];
+
+  var spreadCount = 0
+  var laserCount = 0
+  var rainCount = 0
+  var bombCount = 0
+  var bounceCount = 0
+  var nukeCount = 0
+  for (var i = 0; i < commandPatternArray.length; i++) {
+    if (commandPatternArray[i] === "pattern-spread") {
+      spreadCount++
+    }
+    if (commandPatternArray[i] == "pattern-laser") {
+      laserCount++
+    }
+    if (commandPatternArray[i] == "pattern-rain") {
+      rainCount++
+    }
+    if (commandPatternArray[i] == "pattern-bomb") {
+      bombCount++
+    }
+    if (commandPatternArray[i] == "pattern-bounce") {
+      bounceCount++
+    }
+    if (commandPatternArray[i] == "pattern-nuke") {
+      nukeCount++
+    }
+  }
+  highest = Math.max(spreadCount, laserCount, rainCount, bombCount, bounceCount, nukeCount)
+  if (highest == 0) {
+    console.log("Nothing happened")
+  }
+  else {
+    if (highest = spreadCount) {
+
+    }
+    else if (highest == laserCount) {
+
+    }
+    else if (highest == rainCount) {
+
+    }
+    else if (highest == bombCount) {
+
+    }
+    else if (highest == bounceCount) {
+
+    }
+    else if (highest == nukeCount) {
+      
+    }
+  }
 
 }, 1000);
 

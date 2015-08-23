@@ -97,10 +97,17 @@ var id = gameloop.setGameLoop(function(delta) {
 
         framecount++;
 
+<<<<<<< HEAD
         // if(framecount % 20 == 0)
         // {
         //     explode();
         // }
+=======
+        if(framecount % 20 == 0)
+        {
+            slowThenFastRing();
+        }
+>>>>>>> c580ff6f93e501b979dd5de94e3ecd98f119aedb
 }, 1000 / 30);
 
 var speed = 1;
@@ -139,30 +146,50 @@ function moveBosss(direction) {
 function shootBoss(direction) {
     //makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
 
+<<<<<<< HEAD
     var count = 32;
 
     if (direction == "right") {
         for (var i = 0; i < count; i++){
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+(5*(i-32/2)),image: "bullet", radius: 16})
+=======
+    var count = 16;
+
+    if (direction == "right") {
+        for (var i = 0; i < count; i++){
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
+>>>>>>> c580ff6f93e501b979dd5de94e3ecd98f119aedb
     }
     }
     if (direction == "left") {
         for (var i = 0; i < count; i++){
+<<<<<<< HEAD
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+0+(5*(i-32/2)),image: "bullet", radius: 16})
+=======
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
+>>>>>>> c580ff6f93e501b979dd5de94e3ecd98f119aedb
     }
     }
     if (direction == "up") {
         for (var i = 0; i < count; i++){
+<<<<<<< HEAD
       io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+(5*(i-32/2)),image: "bullet", radius: 16})
+=======
+      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
+>>>>>>> c580ff6f93e501b979dd5de94e3ecd98f119aedb
   }
     }
     if (direction == "down") {
         for (var i = 0; i < count; i++){
+<<<<<<< HEAD
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+0+(5*(i-32/2)),image: "bullet", radius: 16})
+=======
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
+>>>>>>> c580ff6f93e501b979dd5de94e3ecd98f119aedb
     }
     }
 }
-
+//
 function explode()
 {
     console.log("explode");
@@ -176,6 +203,9 @@ function explode()
         tilt: bossrot
     });
     bossrot += 7;
-
+}
+function slowThenFastRing()
+{
+    io.sockets.emit("slowThenFastRing",{});
 }
 
