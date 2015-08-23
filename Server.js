@@ -97,10 +97,10 @@ var id = gameloop.setGameLoop(function(delta) {
 
         framecount++;
 
-        if(framecount % 20 == 0)
-        {
-            explode();
-        }
+        // if(framecount % 20 == 0)
+        // {
+        //     explode();
+        // }
 }, 1000 / 30);
 
 var speed = 1;
@@ -138,24 +138,27 @@ function moveBosss(direction) {
 }
 function shootBoss(direction) {
     //makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
+
+    var count = 32;
+
     if (direction == "right") {
-        for (var i = 0; i < 10; i++){
-        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+i,image: "bullet", radius: 16})
+        for (var i = 0; i < count; i++){
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+(5*(i-32/2)),image: "bullet", radius: 16})
     }
     }
     if (direction == "left") {
-        for (var i = 0; i < 10; i++){
-        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+i,image: "bullet", radius: 16})
+        for (var i = 0; i < count; i++){
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+0+(5*(i-32/2)),image: "bullet", radius: 16})
     }
     }
     if (direction == "up") {
-        for (var i = 0; i < 10; i++){
-      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 360+i,image: "bullet", radius: 16})
+        for (var i = 0; i < count; i++){
+      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+(5*(i-32/2)),image: "bullet", radius: 16})
   }
     }
     if (direction == "down") {
-        for (var i = 0; i < 10; i++){
-        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+i,image: "bullet", radius: 16})
+        for (var i = 0; i < count; i++){
+        io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+0+(5*(i-32/2)),image: "bullet", radius: 16})
     }
     }
 }
