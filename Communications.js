@@ -81,7 +81,7 @@ client.connect();
   if (message == "pattern-nuke") {
     commandPatternArray.push(message)
   }
-  if 
+  // if
  });
 
  setInterval(function() {
@@ -152,7 +152,7 @@ commandMoveArray = [];
   highest = Math.max(rightCount, leftCount, upCount, downCount)
   if (highest == 0) {
     console.log("none called")
-    direction("right")
+    direction = "right"
   }
   else {
     if (highest == rightCount) {

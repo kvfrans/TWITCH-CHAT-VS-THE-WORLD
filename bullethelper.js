@@ -69,21 +69,6 @@ function spinCircle(x,y)
 	})
 }
 
-<<<<<<< HEAD
-function slowThenFastRing()
-{
-	var spawner = makeSpawner(bossx,bossy);
-	spawner.framepast = 0;
-	spawner.tilt = 0;
-	spawner.addEventListener("enterframe",function(){
-		this.x = bossx;
-		this.y = bossy;
-		if(this.framepast % 20 == 0)
-		{
-			this.count = 36;
-			this.tilt += 2;
-			for(var i = 0; i < this.count; i++)
-=======
 function rain(direction)
 {
 	console.log(direction);
@@ -99,7 +84,6 @@ function rain(direction)
 			this.dd = directionNumber(direction);
 
 			if(this.framepast % 10 == 0)
->>>>>>> 7a88d6d32cfa7a2dbbf124005f644c694e7a7531
 			{
 				// var dir = 0;
 					var bullet = makeBullet(Math.random()*1000 - 100,Math.random()*1000 - 100,Math.random()*5 + 1,this.dd,"bullet",16);
@@ -120,6 +104,7 @@ function laser(direction)
 		var spawner = makeSpawner(boss.sprite.x,boss.sprite.y);
 		spawner.framepast = 0;
 		spawner.tilt = 0;
+<<<<<<< HEAD
 		spawner.addEventListener("enterframe",function(){
 			this.x = boss.sprite.x;
 			this.y = boss.sprite.y;
@@ -131,12 +116,50 @@ function laser(direction)
 					var bullet = makeBullet(boss.sprite.x,boss.sprite.y,10,this.dd,"bullet",16);
 					bullet.framepast = 0;
 			}
+=======
+		spawner.dd = directionNumber(direction);
+		spawner.addEventListener("enterframe",function(){
+			this.x = boss.sprite.x;
+			this.y = boss.sprite.y;
+
+			console.log(spawner.dd);
+
+
+			// if(this.framepast % 1 == 0)
+			// {
+				// var dir = 0;
+					var bullet = makeBullet(boss.sprite.x + 64,boss.sprite.y + 64,Math.random()*3+7,this.dd,"bullet",16);
+					bullet.framepast = 0;
+					this.dd++;
+			// }
+>>>>>>> 2210f7757ed2149bac09fad02dcc11316a39c9a9
 			// spawner.tilt ;
 			this.framepast++;
 		});
 	}
 }
 
+<<<<<<< HEAD
+=======
+function bomb(direction)
+{
+	var bullet = makeBullet(boss.sprite.x + 64,boss.sprite.y + 64,2,directionNumber(direction),"bullet",16);
+	bullet.framepast = 0;
+	bullet.addEventListener("enterframe",function(){
+		this.framepast++;
+		if(this.framepast == 100)
+		{
+			// circleSpread(16,this.x,this.y,3,16,"bullet",0);
+			for(var i = 0; i < 32; i++)
+			{
+				makeBullet(this.x,this.y,Math.random()*5+3,0+360*i/32,"bullet",16);
+			}
+			scene.removeChild(this);
+		}
+	});
+}
+
+>>>>>>> 2210f7757ed2149bac09fad02dcc11316a39c9a9
 
 function slowThenFastRing()
 {
