@@ -200,13 +200,13 @@ commandMoveArray = [];
   }
   else {
     if (highest = spreadCount) {
-
+      slowThenFastRing()
     }
     else if (highest == laserCount) {
-
+      laser()
     }
     else if (highest == rainCount) {
-
+      rain()
     }
     else if (highest == bombCount) {
 
@@ -215,7 +215,7 @@ commandMoveArray = [];
 
     }
     else if (highest == nukeCount) {
-      
+
     }
   }
 
