@@ -205,7 +205,7 @@ function explode()
 }
 function slowThenFastRing()
 {
-    io.sockets.emit("clearSpawners",{});
+    io.sockets.emit("clear",{});
     io.sockets.emit("slowThenFastRing",{});
 
 }
@@ -213,20 +213,20 @@ function slowThenFastRing()
 function rain(dir)
 {
     console.log("rain");
-    io.sockets.emit("clearSpawners",{});
+    io.sockets.emit("clear",{});
     io.sockets.emit("rain",{dir: dir});
 }
 
 
 function laser(dir)
 {
-    io.sockets.emit("clearSpawners",{});
+    io.sockets.emit("clear",{});
     io.sockets.emit("laser",{dir: dir});
 }
 
 function bomb(dir)
 {
-    io.sockets.emit("clearSpawners",{});
+    io.sockets.emit("clear",{});
 
     io.sockets.emit("bomb",{dir: dir});
 }

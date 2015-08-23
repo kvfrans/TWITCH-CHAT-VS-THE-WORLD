@@ -17,7 +17,7 @@ socket.on('clear', function (data)
 
 socket.on('clearSpawners', function (data)
 {
-	// clearSpawners();
+	clearSpawners();
 });
 
 socket.on('circleSpread', function (data)
