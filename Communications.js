@@ -216,7 +216,7 @@ commandMoveArray = [];
       rain(shootDirection)
     }
     else if (highest == bombCount) {
-
+      bomb(shootDirection)
     }
     else if (highest == bounceCount) {
 
