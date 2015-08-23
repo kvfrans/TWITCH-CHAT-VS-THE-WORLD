@@ -69,12 +69,14 @@ function spinCircle(x,y)
 	})
 }
 
-function slowThenFastRing(x,y)
+function slowThenFastRing()
 {
-	var spawner = makeSpawner(x,y);
+	var spawner = makeSpawner(bossx,bossy);
 	spawner.framepast = 0;
 	spawner.tilt = 0;
 	spawner.addEventListener("enterframe",function(){
+		this.x = bossx;
+		this.y = bossy;
 		if(this.framepast % 20 == 0)
 		{
 			this.count = 36;
