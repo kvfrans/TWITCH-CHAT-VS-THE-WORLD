@@ -110,7 +110,7 @@ var speed = 1;
 
 function moveBosss(direction) {
 
-    console.log("moveboss");
+    console.log(direction);
     if (direction == "right") {
         if(bossx < 786)
         {
