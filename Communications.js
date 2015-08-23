@@ -35,7 +35,7 @@ client.connect();
     client.action("progstream2", "For a list of commands type !commands, to donate type !donate, to read the about type !about");
   }
   if (message == "!commands") {
-    client.action("progstream2", "To move type direction (EX: right, left, up, down). To shoot type direction. To change shoot pattern type (EX:)")
+    client.action("progstream2", "To move type shootDirection (EX: right, left, up, down). To shoot type shootDirection. To change shoot pattern type (EX:)")
   }
  	if (message == "right") {
  		commandMoveArray.push(message)
@@ -131,7 +131,7 @@ client.connect();
     }
 }
 commandMoveArray = [];
-  var direction;
+  var shootDirection;
   rightCount = 0;
   leftCount = 0;
   upCount = 0;
@@ -153,23 +153,23 @@ commandMoveArray = [];
   highest = Math.max(rightCount, leftCount, upCount, downCount)
   if (highest == 0) {
     console.log("none called")
-    direction = "right"
+    shootDirection = "right"
   }
   else {
     if (highest == rightCount) {
-      direction = "right";
+      shootDirection = "right";
       shootBoss("right")
     }
     else if (highest == leftCount) {
-      direction = "left"
+      shootDirection = "left"
       shootBoss("left")
     }
     else if (highest == downCount) {
-      direction = "down"
+      shootDirection = "down"
       shootBoss("down")
     }
     else if (highest == upCount) {
-      direction = "up"
+      shootDirection = "up"
       shootBoss("up")
     }
   }
@@ -210,10 +210,10 @@ commandMoveArray = [];
       slowThenFastRing()
     }
     else if (highest == laserCount) {
-      laser(direction)
+      laser(shootDirection)
     }
     else if (highest == rainCount) {
-      rain(direction)
+      rain(shootDirection)
     }
     else if (highest == bombCount) {
 
