@@ -97,10 +97,10 @@ var id = gameloop.setGameLoop(function(delta) {
 
         framecount++;
 
-        // if(framecount % 20 == 0)
-        // {
-        //     explode();
-        // }
+        if(framecount % 20 == 0)
+        {
+            slowThenFastRing();
+        }
 }, 1000 / 30);
 
 var speed = 1;
@@ -139,7 +139,7 @@ function moveBosss(direction) {
 function shootBoss(direction) {
     //makeBullet(data.x,data.y,data.speed,data.rotation, data.image, data.radius);
 
-    var count = 32;
+    var count = 16;
 
     if (direction == "right") {
         for (var i = 0; i < count; i++){
@@ -176,6 +176,9 @@ function explode()
         tilt: bossrot
     });
     bossrot += 7;
-
+}
+function slowThenFastRing()
+{
+    io.sockets.emit("slowThenFastRing",{});
 }
 

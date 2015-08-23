@@ -37,7 +37,7 @@ socket.on('spinCircle', function (data)
 
 socket.on('slowThenFastRing', function (data)
 {
-	slowThenFastRing(data.x,data.y);
+	slowThenFastRing();
 });
 
 socket.on('initBoss', function (data)
