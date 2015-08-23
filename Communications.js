@@ -34,7 +34,7 @@ client.connect();
   if (message == "!help") {
     client.action("progstream2", "For a list of commands type !commands, to donate type !donate, to read the about type !about");
   }
-  if (message = "!commands") {
+  if (message == "!commands") {
     client.action("progstream2", "To move type direction (EX: right, left, up, down). To shoot type direction. To change shoot pattern type (EX:)")
   }
  	if (message == "right") {
