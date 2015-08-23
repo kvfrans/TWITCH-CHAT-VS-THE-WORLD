@@ -213,7 +213,7 @@ function rain(dir)
     io.sockets.emit("clearSpawners",{});
     io.sockets.emit("rain",{dir: dir});
 }
-//
+
 
 function laser(dir)
 {

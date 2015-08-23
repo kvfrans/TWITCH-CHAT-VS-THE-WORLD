@@ -104,19 +104,6 @@ function laser(direction)
 		var spawner = makeSpawner(boss.sprite.x,boss.sprite.y);
 		spawner.framepast = 0;
 		spawner.tilt = 0;
-<<<<<<< HEAD
-		spawner.addEventListener("enterframe",function(){
-			this.x = boss.sprite.x;
-			this.y = boss.sprite.y;
-			this.dd = directionNumber(direction);
-
-			if(this.framepast % 1 == 0)
-			{
-				// var dir = 0;
-					var bullet = makeBullet(boss.sprite.x,boss.sprite.y,10,this.dd,"bullet",16);
-					bullet.framepast = 0;
-			}
-=======
 		spawner.dd = directionNumber(direction);
 		spawner.addEventListener("enterframe",function(){
 			this.x = boss.sprite.x;
@@ -132,15 +119,13 @@ function laser(direction)
 					bullet.framepast = 0;
 					this.dd++;
 			// }
->>>>>>> 2210f7757ed2149bac09fad02dcc11316a39c9a9
 			// spawner.tilt ;
 			this.framepast++;
 		});
 	}
 }
 
-<<<<<<< HEAD
-=======
+
 function bomb(direction)
 {
 	var bullet = makeBullet(boss.sprite.x + 64,boss.sprite.y + 64,2,directionNumber(direction),"bullet",16);
@@ -159,7 +144,6 @@ function bomb(direction)
 	});
 }
 
->>>>>>> 2210f7757ed2149bac09fad02dcc11316a39c9a9
 
 function slowThenFastRing()
 {

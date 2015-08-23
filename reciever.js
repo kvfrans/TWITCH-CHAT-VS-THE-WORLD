@@ -17,7 +17,7 @@ socket.on('clear', function (data)
 
 socket.on('clearSpawners', function (data)
 {
-	clearSpawners();
+	// clearSpawners();
 });
 
 socket.on('circleSpread', function (data)
@@ -53,7 +53,7 @@ socket.on('laser', function (data)
 
 socket.on('bomb', function (data)
 {
-	bomb(data.dir);
+	// bomb(data.dir);
 });
 
 socket.on('initBoss', function (data)
