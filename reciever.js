@@ -53,7 +53,7 @@ socket.on('laser', function (data)
 
 socket.on('bomb', function (data)
 {
-	// bomb(data.dir);
+	bomb(data.dir);
 });
 
 socket.on('initBoss', function (data)
