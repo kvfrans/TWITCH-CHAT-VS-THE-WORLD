@@ -81,7 +81,7 @@ client.connect();
   if (message == "pattern-nuke") {
     commandPatternArray.push(message)
   }
-  if 
+  // if
  });
 
  setInterval(function() {

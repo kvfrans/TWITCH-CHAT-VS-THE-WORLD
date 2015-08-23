@@ -43,7 +43,7 @@ io.sockets.on('connection', function (socket) {
             name: currentbackground
         });
 
-        rain("left");
+        bomb("left");
 
         // spinCircle();
 
@@ -99,10 +99,10 @@ var id = gameloop.setGameLoop(function(delta) {
 
         framecount++;
 
-        if(framecount % 20 == 0)
-        {
-            slowThenFastRing();
-        }
+        // if(framecount % 20 == 0)
+        // {
+        //     slowThenFastRing();
+        // }
 
 }, 1000 / 30);
 
@@ -149,11 +149,13 @@ function shootBoss(direction) {
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+(5*(i-32/2)),image: "bullet", radius: 16})
 
     var count = 16;
+}}
 
     if (direction == "right") {
         for (var i = 0; i < count; i++){
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
     var count = 16;
+}}
 
     if (direction == "right") {
         for (var i = 0; i < count; i++){
@@ -164,23 +166,21 @@ function shootBoss(direction) {
     if (direction == "left") {
         for (var i = 0; i < count; i++){
 
-       
+
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 180+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
 
     }
     }
     if (direction == "up") {
         for (var i = 0; i < count; i++){
+     io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
 
-    
-      io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 270+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
-
-  }
+        }
     }
     if (direction == "down") {
         for (var i = 0; i < count; i++){
 
-       
+
         io.sockets.emit('bossShoot', {x: bossx, y: bossy, speed: 3, rotation: 90+0+((100/count)*(i-count/2)),image: "bullet", radius: 16})
 
     }
@@ -212,9 +212,14 @@ function rain(dir)
     io.sockets.emit("rain",{dir: dir});
 }
 
+
 function laser(dir)
 {
     io.sockets.emit("laser",{dir: dir});
+}
 
+function bomb(dir)
+{
+    io.sockets.emit("bomb",{dir: dir});
 }
 
