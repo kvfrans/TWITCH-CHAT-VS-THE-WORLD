@@ -38,8 +38,7 @@ socket.on('spinCircle', function (data)
 socket.on('slowThenFastRing', function (data)
 {
 	slowThenFastRing();
-<<<<<<< HEAD
-=======
+
 });
 
 socket.on('rain', function (data)
@@ -50,7 +49,11 @@ socket.on('rain', function (data)
 socket.on('laser', function (data)
 {
 	laser(data.dir);
->>>>>>> 7a88d6d32cfa7a2dbbf124005f644c694e7a7531
+});
+
+socket.on('bomb', function (data)
+{
+	bomb(data.dir);
 });
 
 socket.on('initBoss', function (data)
