@@ -106,7 +106,7 @@ client.connect();
       }
     var highest = Math.max(rightCount, leftCount, downCount, upCount);
     if (highest == 0) {
-    	console.log("no one")
+    	// console.log("no one")
     }
     else {
     if (highest == rightCount) {
@@ -152,7 +152,7 @@ commandMoveArray = [];
   }
   highest = Math.max(rightCount, leftCount, upCount, downCount)
   if (highest == 0) {
-    console.log("none called")
+    // console.log("none called")
     shootDirection = "right"
   }
   else {
@@ -206,7 +206,7 @@ commandMoveArray = [];
     // console.log("Nothing happened")
   }
   else {
-    if (highest = spreadCount) {
+    if (highest == spreadCount) {
       slowThenFastRing()
     }
     else if (highest == laserCount) {
