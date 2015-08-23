@@ -225,7 +225,7 @@ commandMoveArray = [];
 
     }
   }
-
+  commandPatternArray = []
 }, 1000);
 
 
