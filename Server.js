@@ -43,7 +43,7 @@ io.sockets.on('connection', function (socket) {
             name: currentbackground
         });
 
-        bomb("left");
+        nuke("right");
 
         // spinCircle();
 
@@ -227,7 +227,12 @@ function laser(dir)
 function bomb(dir)
 {
     io.sockets.emit("clear",{});
-
     io.sockets.emit("bomb",{dir: dir});
+}
+
+function nuke(dir)
+{
+    io.sockets.emit("clear",{});
+    io.sockets.emit("nuke",{dir: dir});
 }
 

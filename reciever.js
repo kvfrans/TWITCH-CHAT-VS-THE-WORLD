@@ -56,6 +56,11 @@ socket.on('bomb', function (data)
 	bomb(data.dir);
 });
 
+socket.on('nuke', function (data)
+{
+	nuke(data.dir);
+});
+
 socket.on('initBoss', function (data)
 {
 	initBoss(data.x,data.y,data.image);

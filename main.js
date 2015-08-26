@@ -29,6 +29,7 @@ window.onload = function(){
 	game.fps = 60;
 	game.preload("images/player.png");
 	game.preload("images/bullet.png");
+    game.preload("images/nuke.png");
     game.preload("images/bullet3.png");
     game.preload("images/bulletbig.png");
     game.preload("images/bulletsmall.png");
