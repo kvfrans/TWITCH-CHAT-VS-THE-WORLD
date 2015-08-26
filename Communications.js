@@ -31,6 +31,9 @@ client.connect();
     explodeCount = 0
     explode()
   }
+  if (message == "!tolga") {
+    client.action("progstream2", "Tolga is the most awesome person in the world")
+  }
   if (message == "!help") {
     client.action("progstream2", "For a list of commands type !commands, to donate type !donate, to read the about type !about");
   }
@@ -225,7 +228,8 @@ commandMoveArray = [];
 
     }
     else if (highest == nukeCount) {
-
+      //Double check with kevin to make sure this works
+      nuke(shootDirection)
     }
   }
   commandPatternArray = []
